@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>停车场查询系统</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://api.map.baidu.com/api?v=2.0&ak=dPPsexAcLElYeh7LGweURCJfsG2EdZql"></script>
+</head>
+<body>
+    <header>
+        <h1>停车场实时查询系统</h1>
+        <div id="user-info" style="display:none;">
+            <img id="user-avatar" src="images/avatar1.jpg" alt="用户头像">
+            <span id="username-display"></span>
+        </div>
+        <button id="loginBtn" style="float: right;">登录</button>
+    </header>
+
+    <div style="text-align: center; margin-top: 10px;">
+        <input type="text" id="searchInput" placeholder="搜索停车场" disabled>
+        <button id="searchBtn" disabled>搜索</button>
+        <button id="refreshBtn" disabled>手动刷新</button>
+    </div>
+
+    <div id="map" style="width: 100%; height: 400px;"></div>
+
+    <footer>
+        <p>© 2024 停车场查询系统</p>
+    </footer>
+
+    <!-- 登录模态框 -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>登录</h2>
+            <form id="authForm">
+                <input type="text" id="username" placeholder="用户名" required>
+                <input type="password" id="password" placeholder="密码（6位及以上）" required minlength="6">
+                <button type="submit">提交</button>
+            </form>
+            <button id="registerBtn">注册</button>
+            <button id="forgotPasswordBtn">找回密码</button>
+        </div>
+    </div>
+
+    <!-- 注册模态框 -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-register">&times;</span>
+            <h2>注册</h2>
+            <form id="registerForm">
+                <input type="text" id="newUsername" placeholder="用户名" required>
+                <input type="password" id="newPassword" placeholder="密码（6位及以上）" required minlength="6">
+                <button type="submit">注册</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 找回密码模态框 -->
+    <div id="forgotPasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close-forgot-password">&times;</span>
+            <h2>找回密码</h2>
+            <form id="forgotPasswordForm">
+                <input type="text" id="forgotUsername" placeholder="用户名" required>
+                <button type="submit">找回密码</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
